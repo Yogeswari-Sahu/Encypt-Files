@@ -1,0 +1,82 @@
+<html>
+    <head>
+    
+      
+    <script>
+    function generate() {
+        console.log("hi");
+    var lowercase = "abcdefghijklmnopqrstuvwxyz",
+      uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+      numbers = "0123456789",
+      punctuation = "!@#$%^&*()_+~`|}{[]:;?><,./-=",
+      lowercaseInput = document.getElementById("lowercase"),
+      uppercaseInput = document.getElementById("uppercase"),
+      punctuationInput = document.getElementById("punctuation"),
+      numbersInput = document.getElementById("numbers"),
+      lengthInput = document.getElementById("length"),
+      passwordField = document.getElementById("generatedPass"),
+      plength,
+      userPassword,
+      passwordCharSet;
+    userPassword = "";
+    passwordCharSet = "";
+    // console.log(lowercaseInput.checked);
+    // console.log(numbersInput.checked);
+    if (lowercaseInput.checked) {
+      passwordCharSet += lowercase;
+    }
+    if (uppercaseInput.checked) {
+      passwordCharSet += uppercase;
+    }
+    if (punctuationInput.checked) {
+      passwordCharSet += punctuation;
+    }
+    if (numbersInput.checked) {
+      passwordCharSet += numbers;
+    }
+    plength = Number(lengthInput.value);
+    for (let i = 0; i < plength; i++) {
+      userPassword += passwordCharSet.charAt(
+        Math.floor(Math.random() * passwordCharSet.length)
+      );
+    }
+    // console.log(userPassword);
+    if (userPassword == "") {
+      alert("Please select an option before generating");
+    } else {
+      console.log(userPassword);
+      passwordField.value = userPassword;
+    }
+  }
+        
+    
+    
+        </script>
+    </head>
+
+    <body>
+    <div style="float: left;margin-left: 5%;">
+    <h1>Password Suggestor</h1>
+     <input type="text" id='generatedPass' />
+        </br>
+     
+          <label for='length'>Password Length</label>
+          <input style="margin-bottom:2%" min="8" max="100"  type='number' name='length' value=8 placeholder='8' id='length'></input>
+        </br>
+              <input style="margin-bottom:2%" type="checkbox" id="lowercase">
+              <label style="margin-bottom:2%"  for="lowercase"><span class="checkbox">Use Lowercase Characters</span></label>
+          </br>
+              <input style="margin-bottom:2%" type="checkbox" id="uppercase">
+              <label style="margin-bottom:2%" for="uppercase"><span class="checkbox">Use Uppercase Characters</span></label>
+          </br>
+              <input style="margin-bottom:2%" type="checkbox" id="numbers">
+              <label  for="numbers"><span class="checkbox">Use Numbers</span></label>
+          </br> 
+              <input style="margin-bottom:2%"  type="checkbox" id="punctuation">
+              <label for="punctuation"><span class="checkbox">Use special characters</span></label>
+          </br>
+          <a class="button generate green"><button onclick="generate()">Generate!!</button></a>
+           
+        </div>
+    </body>
+    </html> 

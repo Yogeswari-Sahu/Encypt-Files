@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ENCRYPTO: FILE ENCRYPTION SIMPLIFIED
+      WITH A BUILT-IN PASSWORD SUGGESTER</title>
+    <link
+      href="http://fonts.googleapis.com/css?family=Raleway:400,700"
+      rel="stylesheet"
+    />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    
+  </head>
+
+  <body>
+    <a class="back"></a>
+
+    <div id="StageID">
+      <div id="stepOne">
+        <div class="back">
+          <h1 class="heading">ENCRYPTO: FILE ENCRYPTION SIMPLIFIED WITH A BUILT-IN PASSWORD SUGGESTER</h1>
+        </div>
+        <div class="classContent">
+          <h1 style="padding-top: 10px;">What action do you want to take?</h1>
+          <a class="button encrypt purple">Encrypt a file</a>
+          <a class="button decrypt magenta">Decrypt a file</a>
+        </div>
+      </div>
+
+      <div id="stepTwo">
+        <div class="classContent if-encrypt">
+          <h1>Choose which file (text,image,video,audio) to encrypt</h1>
+          <h2>
+            The system will generate an encrypted copy of the file. The data is not sent to our server.
+          </h2>
+          <a class="button browse blue">Browse</a>
+
+          <input type="file" id="encrypt-input" />
+        </div>
+
+        <div class="classContent if-decrypt">
+          <h1>Choose which file (text,image,video,audio) to decrypt</h1>
+          <h2>Note: Only files encrypted by this tool are accepted.</h2>
+          <a class="button browse blue">Browse</a>
+
+          <input type="file" id="decrypt-input" />
+        </div>
+      </div>
+
+      <div id="stepThree">
+        <div class="classContent if-encrypt">
+          <div style="float: left;margin-left: 5%;">
+      <h1>Password Suggester</h1>
+       <input type="text" id='generatedPass' />
+          </br>
+       
+			<label for='length'>Password Length</label>
+			<input style="margin-bottom:2%" min="8" max="100"  type='number' name='length' value=8 placeholder='8' id='length'></input>
+		  </br>
+				<input style="margin-bottom:2%" type="checkbox" id="lowercase">
+				<label style="margin-bottom:2%"  for="lowercase"><span class="checkbox">Use Lowercase Characters</span></label>
+			</br>
+				<input style="margin-bottom:2%" type="checkbox" id="uppercase">
+				<label style="margin-bottom:2%" for="uppercase"><span class="checkbox">Use Uppercase Characters</span></label>
+			</br>
+				<input style="margin-bottom:2%" type="checkbox" id="numbers">
+				<label  for="numbers"><span class="checkbox">Use Numbers</span></label>
+			</br> 
+				<input style="margin-bottom:2%"  type="checkbox" id="punctuation">
+				<label for="punctuation"><span class="checkbox">Use special characters</span></label>
+			</br>
+			<a class="button generate purple">Generate!</a>
+			 
+          </div>
+          <div style="float: right; margin-right: 5%;">
+            <h1>Enter a password phrase </h1>
+            <h2>
+              This password will be used as an encryption key for the file. 
+              <br>
+              Make a note of it. The file can't be restored without it.
+            </h2>
+
+            <input type="password" id='password' />
+            <a class="button process red">Encrypt!</a>
+          </div>
+        </div>
+
+        <div class="classContent if-decrypt">
+          <h1 style="padding-top: 50px;">Enter the password phrase</h1>
+          <h2>
+            Enter the password that was used to encrypt this file. It isn't
+            possible to decrypt the file without it.
+          </h2>
+
+          <input type="password" />
+          <a class="button process red">Decrypt!</a>
+        </div>
+      </div>
+
+      <div id="stepFour">
+        <div class="classContent">
+          <h1>Your file is ready to Download!</h1>
+          <a class="button download blue">Download</a>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="assets/js/aes.js"></script>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="assets/js/script.js"></script>
+</html>
